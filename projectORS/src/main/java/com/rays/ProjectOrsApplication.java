@@ -15,7 +15,7 @@ import com.rays.common.FrontCtl;
 
 
 /**
- * @author Shailendra Rai
+ * @author Kartik 
  *
  */
 @SpringBootApplication
