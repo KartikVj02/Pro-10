@@ -63,7 +63,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 
 	@GetMapping("/preload")
 	public ORSResponse preload() {
-		System.out.println("inside preload vipin");
+		System.out.println("inside preload ");
 		ORSResponse res = new ORSResponse(true);
 		RoleDTO dto = new RoleDTO();
 		dto.setStatus(RoleDTO.ACTIVE);
@@ -80,7 +80,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 		//res.setSuccess(true);
 		res.addMessage("Logout Successfully");
 		//res.addResult("roleList", list);
-		System.out.println("Deepraj Chouhan logout");
+		System.out.println(" logout");
 		return res;
 	}
 
@@ -137,7 +137,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	 */
 	@PostMapping("changepassword")
 	public ORSResponse changePassword(@RequestBody @Valid ChangePasswordForm form, BindingResult bindingResult) {
-		System.out.println("Inside changepassword in userctl......vipin");
+		System.out.println("Inside changepassword in userctl......");
 
 		
 		ORSResponse res = validate(bindingResult);
@@ -223,7 +223,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	public ORSResponse uploadPic(@PathVariable Long userId, @RequestParam("file") MultipartFile file,
 			HttpServletRequest req) {
 
-		System.out.println("User ID id --------------Deepraj Chouhan" + userId);
+		System.out.println("User ID id -------------- " + userId);
 
 		UserDTO userDTO = baseService.findById(userId, userContext);
 
@@ -233,9 +233,9 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 		System.out.println(doc.getDescription() + "description");
 
 		doc.setPath(req.getServletPath());
-		System.out.println(doc.getPath() + "path-----vipin");
+		System.out.println(doc.getPath() + "path-----");
 		doc.setUserId(userId);
-		System.out.println(doc.getUserId() + "id-----vipin");
+		System.out.println(doc.getUserId() + "id-----");
 
 		if (userDTO.getImageId() != null && userDTO.getImageId() > 0) {
 			doc.setId(userDTO.getImageId());
@@ -283,7 +283,7 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 				OutputStream out = response.getOutputStream();
 				out.write(attachmentDTO.getDoc());
 				out.close();
-				System.out.println("Profile pic......vipin");
+				System.out.println("Profile pic......");
 			} else {
 				response.getWriter().write("ERROR: File not found");
 			}
